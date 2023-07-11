@@ -1,18 +1,42 @@
+import { hero ,monster } from "./data.js"
 
 
-document.getElementById("hero").innerHTML = `
-<div class="character-card">
-    <h4 class="name"> Wizard </h4>
-    <img src="./images/wizard.png"  class="avatar">
-    <p class="health">health: <b> 60 </b></p>
-    <div class="dice-container"><div class="dice"> 6 </div>
-</div>
-`
 
-document.getElementById("monster").innerHTML = `
-    <div class="character-card" >
-        <h4 class="name"> Orc </h4>
-        <img class="avatar" src="images/orc.png"/>
-        <p class="health">health: <b> 10 </b></p>
-        <div class="dice-container"><div class="dice"> 4 </div></div>   
-    </div>`
+
+function getDiceRollArray(diceCount) {
+  return new Array(diceCount).fill(0).map(function(){
+    return Math.floor(Math.random() * 6) + 1
+
+   })
+}
+ 
+
+ function getDiceHtml(diceCount){
+   return getDiceRollArray(diceCount).map(function(num){
+    return `<div class="dice">${num}</div>`
+   }).join("") 
+  }
+
+
+
+function renderCharacter(data){
+  const { elementId ,name ,avatar ,health ,diceCont} = data
+  const diceHtml =getDiceHtml(diceCont)
+  
+  
+
+    
+    document.getElementById(elementId).innerHTML = `
+    <div class="character-card">
+    <h4 class="name"> ${name} </h4>
+    <img src="${avatar}"  class="avatar">
+    <p class="health">health: <b> ${health} </b></p>
+    <div class="dice-container">
+    ${diceHtml}
+</div>`
+}
+renderCharacter(hero)
+renderCharacter(monster)
+
+
+
