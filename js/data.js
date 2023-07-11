@@ -4,7 +4,7 @@ export const hero = {
     name :"Wizard",
     avatar :"./images/wizard.png",
     health: 60 ,
-    diceCont:3
+    diceCount:3
 
 }
 
@@ -13,7 +13,7 @@ export const monster = {
     name :"Orc",
     avatar :"./images/orc.png",
     health: 10 ,
-    diceCont:1
+    diceCount:1
 }
 
  
