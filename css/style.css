@@ -1,8 +1,9 @@
 html, body {
+    font-size: 18px;
     padding: 0;
     margin: 0;    
-    background: rgb(51,43,55);
-    background: radial-gradient(circle, rgba(51,43,55,1) 0%, rgba(51,43,55,1) 100%);
+    background: rgb(35, 136, 204);
+    background: radial-gradient(circle, rgb(76, 129, 143) 0%, rgb(60, 73, 148) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +29,7 @@ main {
 }
 
 .character-card {
-    height:14rem;
+    height:16rem;
     margin-top: .5rem;
     width:94vw;
     max-width: 230px;
@@ -37,18 +38,18 @@ main {
     color: white;
     border-radius: 14px;
     position: relative;
-    background: #231d24;
+    background: #0d1625;
     text-align: center;
     overflow: hidden;
-    border: 0.2rem solid #000721;
+    border: 0.2rem solid #06152c;
     box-shadow: inset 0px 0px 6px 2px rgba(100,100,100,0.2),
                 0px 0px 10px rgba(117,182,214,0.2);
 }
 
 @media(min-width:550px){
     .character-card {
-        border: 0.2rem solid #000721;
-        height:26rem;
+        border: 0.2rem solid #06152c;
+        height:28rem;
         width:37vw;
     }
 }
@@ -69,7 +70,7 @@ main {
 
 .avatar {
     width: 15vh;
-    border: 2px solid #000721;
+    border: 2px solid #06152c;
     max-width:100%;
     opacity: 0.8;
     border-radius: 10px;
@@ -104,7 +105,7 @@ main {
 }
 
 .health-bar-outer {
-    background: #171217;
+    background: #06152c;
     height: 1vh;
     width:90%;
     margin: 0 5%;
@@ -112,13 +113,13 @@ main {
 }
 
 .health-bar-outer .health-bar-inner {
-    background: #466d34;
+    background: #3ca80a;
     height: 100%;
     border-radius: 2px;
 }
 
 .health-bar-outer .health-bar-inner.danger {
-    background:#d1435f;
+    background:#d14343;
 }
 
 .dice-container {
@@ -128,7 +129,7 @@ main {
     bottom:0;
     left:0px;
     right:0;
-    background: #000721;
+    background: #06152c;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,8 +170,8 @@ main {
 button {
     margin-top: .5rem;
     font-family: 'MedievalSharp', cursive;
-    background-color: #fcc02a;
-    border: 2px solid #963404;
+    background-color: #df982e;
+    border: 2px solid #3414a8;
     outline: none;
     padding-left:5vw;
     padding-right:5vw;
@@ -180,7 +181,7 @@ button {
     font-size: 1.5rem;
     border-radius: 6px;
     cursor: pointer;
-    color:#963404;
+    color:#3414a8;
     height:9vh;
     box-shadow: 0px 6px 10px -4px rgba(0,0,0,0.4);
 }
