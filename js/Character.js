@@ -1,26 +1,32 @@
-import  {getDiceRollArray ,getDicePlaceholderHtml} from "./utils.js"
+import { getDiceRollArray, getDicePlaceholderHtml } from "./utils.js"
 
 
 
 
-function Character (data){
+function Character(data) {
     Object.assign(this, data)
 
-   this.diceArray =getDicePlaceholderHtml(this.diceCount)
-    
+    this.diceArray = getDicePlaceholderHtml(this.diceCount)
 
-     this.getDiceHtml = function(diceCount){
+
+    this.takeDamage = function (attackScoreArray) {
+        const totalAttackScore = attackScoreArray.reduce( (total, num) => total + num)
+        this.health -= totalAttackScore
+        if (this.health <= 0) {
+            this.dead = true
+            this.health = 0
+        }
+    }
+    this.getDiceHtml =  () => {
         this.currentDiceScore = getDiceRollArray(this.diceCount)
-        this.diceArray = this.currentDiceScore.map(function(num){
-            return  `<div class="dice">${num}</div>`
+        this.diceArray = this.currentDiceScore.map( num => `<div class="dice">${num}</div>` ).join('')
 
-        }).join('')
-      
-     }
-     this.getCharacterHtml = function(){
-        const { elementId ,name ,avatar ,health ,diceCount ,diceArray} = this;
-        const diceHtml = this.getDiceHtml(diceCount);  
-       return  `
+    }
+    this.getCharacterHtml =  () => {
+        const { elementId, name, avatar, health, diceCount, diceArray } = this;
+        const diceHtml = this.getDiceHtml(diceCount);
+     
+        return `
           <div class="character-card">
           <h4 class="name"> ${name} </h4>
           <img src="${avatar}"  class="avatar">
@@ -28,9 +34,9 @@ function Character (data){
           <div class="dice-container">
           ${diceArray}
       </div>`;
-      }
-    
-    } 
-  
+    }
 
-  export  default Character  
+}
+
+
+export default Character  
