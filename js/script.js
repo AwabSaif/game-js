@@ -2,10 +2,12 @@ import  characterData  from "./data.js"
 import   Character from "./Character.js"
 
 
-function attack(){
- 
-    console.log("attack button working")
- 
+
+function attack(data){
+  
+  wizard.getDiceHtml()
+  orc.getDiceHtml()
+  render() 
 }
 
 
